@@ -14,10 +14,15 @@
     flex-wrap: wrap;
 }
 
-.grid {
+.gridEl {
     display: flex;
+    color: black;
     height: 25vh;
     width: 25vw;
+    background-color: whitesmoke;
+    border: 1px solid red;
+}
+
+#colored {
     background-color: black;
-    border: 1px solid white;
 }
