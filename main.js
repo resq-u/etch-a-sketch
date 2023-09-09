@@ -15,10 +15,12 @@ number *= number;
 };
 
 btn.addEventListener('click', () => {
+    clearGrid();
     let wat = prompt("hej",);
     getGrid(wat);
     startTracking();
 });
+
 
 function startTracking() {
 
@@ -31,5 +33,10 @@ function startTracking() {
         });
     });
 
-}
+};
 
+function clearGrid() {
+    const grid = document.querySelectorAll('.gridEl');
+
+    grid.forEach((element) => element.remove());
+};
