@@ -1,5 +1,6 @@
 const container = document.querySelector('#container');
-const btn = document.querySelector('button');
+const newBtn = document.querySelector('#reset');
+const rainbowBtn = document.querySelector('#rainbow')
 
 function getGrid(number){
 if (number > 100) return;
@@ -14,7 +15,7 @@ number *= number;
     };
 };
 
-btn.addEventListener('click', () => {
+newBtn.addEventListener('click', () => {
     clearGrid();
     let wat = prompt("hej",);
     getGrid(wat);
@@ -40,3 +41,10 @@ function clearGrid() {
 
     grid.forEach((element) => element.remove());
 };
+
+function getRandomRGB() {
+    return `background: rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)});`;
+}
+
+console.log(getRandomRGB());
+//.log(`rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)} `);
