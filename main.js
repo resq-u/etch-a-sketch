@@ -15,22 +15,26 @@ number *= number;
     };
 };
 
-newBtn.addEventListener('click', () => {
-    clearGrid();
-    let wat = prompt("hej",);
-    getGrid(wat);
-    startTracking();
-});
-
-
 function startTracking() {
+    const grid = document.querySelectorAll('.gridEl');
+
+    grid.forEach((element) => { 
+        rainbowListener();
+        element.addEventListener('mouseover', () => {
+            element.style.backgroundColor = 'black';
+        });
+    });
+
+};
+
+function startRainbowing() {
 
     const grid = document.querySelectorAll('.gridEl');
 
     grid.forEach((element) => { 
         element.addEventListener('mouseover', () => {
-            const coloredEl = document.querySelector('#colored');
-            element.setAttribute('id', 'colored');
+            element.style.backgroundColor = getRandomRGB();
+
         });
     });
 
@@ -38,13 +42,22 @@ function startTracking() {
 
 function clearGrid() {
     const grid = document.querySelectorAll('.gridEl');
-
     grid.forEach((element) => element.remove());
 };
 
-function getRandomRGB() {
-    return `background: rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)});`;
-}
+newBtn.addEventListener('click', () => {
+    clearGrid();
+    let wat = prompt("hej",);
+    getGrid(wat);
+    startTracking();  
+});                  
 
-console.log(getRandomRGB());
-//.log(`rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)} `);
+function rainbowListener() {
+
+    rainbowBtn.addEventListener('click', () => {
+        startRainbowing();
+    });
+};
+function getRandomRGB() {
+    return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+};
