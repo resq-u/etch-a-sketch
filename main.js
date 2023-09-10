@@ -2,6 +2,7 @@ const container = document.querySelector('#container');
 const resetBtn = document.querySelector('#reset');
 const rainbowBtn = document.querySelector('#rainbow');
 const blackBtn = document.querySelector('#black');
+const shadeBtn = document.querySelector('#shade');
 
 function getGrid(number){
 if (number > 100) return;
@@ -45,12 +46,6 @@ function clearGrid() {
     grid.forEach((element) => element.remove());
 };
 
-resetBtn.addEventListener('click', () => {
-    clearGrid();
-    let gridSize = prompt("hej",);
-    getGrid(gridSize);
-    startTracking();
-});                  
 
 function blackListener() {
 
@@ -70,3 +65,9 @@ function getRandomRGB() {
     return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
 };
 
+resetBtn.addEventListener('click', () => {
+    clearGrid();
+    let gridSize = prompt("hej",);
+    getGrid(gridSize);
+    startTracking();
+});                  
