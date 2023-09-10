@@ -1,6 +1,7 @@
 const container = document.querySelector('#container');
-const newBtn = document.querySelector('#reset');
-const rainbowBtn = document.querySelector('#rainbow')
+const resetBtn = document.querySelector('#reset');
+const rainbowBtn = document.querySelector('#rainbow');
+const blackBtn = document.querySelector('#black');
 
 function getGrid(number){
 if (number > 100) return;
@@ -19,12 +20,12 @@ function startTracking() {
     const grid = document.querySelectorAll('.gridEl');
 
     grid.forEach((element) => { 
-        rainbowListener();
+        //console.log(rainbowListener());
         element.addEventListener('mouseover', () => {
             element.style.backgroundColor = 'black';
         });
     });
-
+    rainbowListener();
 };
 
 function startRainbowing() {
@@ -34,10 +35,9 @@ function startRainbowing() {
     grid.forEach((element) => { 
         element.addEventListener('mouseover', () => {
             element.style.backgroundColor = getRandomRGB();
-
         });
     });
-
+    blackListener();
 };
 
 function clearGrid() {
@@ -45,12 +45,19 @@ function clearGrid() {
     grid.forEach((element) => element.remove());
 };
 
-newBtn.addEventListener('click', () => {
+resetBtn.addEventListener('click', () => {
     clearGrid();
-    let wat = prompt("hej",);
-    getGrid(wat);
-    startTracking();  
+    let gridSize = prompt("hej",);
+    getGrid(gridSize);
+    startTracking();
 });                  
+
+function blackListener() {
+
+    blackBtn.addEventListener('click', () => {
+        startTracking();
+    });
+};
 
 function rainbowListener() {
 
@@ -58,6 +65,8 @@ function rainbowListener() {
         startRainbowing();
     });
 };
+
 function getRandomRGB() {
     return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
 };
+
