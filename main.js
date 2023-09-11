@@ -21,11 +21,12 @@ function startTracking() {
     const grid = document.querySelectorAll('.gridEl');
 
     grid.forEach((element) => { 
-        //console.log(rainbowListener());
         element.addEventListener('mouseover', () => {
             element.style.backgroundColor = 'black';
         });
     });
+    
+    shadeListener();
     rainbowListener();
 };
 
@@ -40,6 +41,23 @@ function startRainbowing() {
     });
     blackListener();
 };
+
+function startShading() {
+    const grid = document.querySelectorAll('.gridEl');
+    
+        grid.forEach((element) => { 
+            let rgb = 255;
+                element.addEventListener('mouseover', () => {
+                        rgb -= 25.5;
+                        element.style.backgroundColor = getShadeVal(rgb);
+                });
+        });
+
+
+    blackListener();
+
+};
+
 
 function clearGrid() {
     const grid = document.querySelectorAll('.gridEl');
@@ -61,13 +79,30 @@ function rainbowListener() {
     });
 };
 
+function shadeListener() {
+
+    shadeBtn.addEventListener('click', () => {
+        startShading();
+    });
+};
+
 function getRandomRGB() {
     return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
 };
+
+
+
+function getShadeVal(rgbValue) {
+
+        return `rgb(${rgbValue}, ${rgbValue}, ${rgbValue})`;
+};
+
 
 resetBtn.addEventListener('click', () => {
     clearGrid();
     let gridSize = prompt("hej",);
     getGrid(gridSize);
+    container.style.cssText = "border-bottom: 1px solid red; border-right: 1px solid red;";
     startTracking();
 });                  
+

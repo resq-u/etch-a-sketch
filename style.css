@@ -2,7 +2,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-
+    text-align: center;
+    background: rgb(240, 240, 240);
 }
 
 
@@ -20,21 +21,23 @@
 .gridEl {
     display: flex;
     color: black;
-    background: whitesmoke;
-    border: 1px solid red;   
+    background: white;
+    border-top: 1px solid red;   
+    border-left: 1px solid red;   
 }
 
 #colored {
-    background: rgb(0, 0, 0);
+    background: rgb(50, 50, 50);
 }
-
-#rainbowed {}
-
 
 button {
-    align-self: flex-start;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid lightskyblue;
+    margin: 16px 8px 16px 8px;
+    padding: 8px;
 }
 
-smt {
-    background: rgb(rgb(196, 137, 137), green, blue);
+button:hover {
+    background-color: lightblue;
 }
